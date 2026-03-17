@@ -3,16 +3,17 @@ import { Container } from "../../../components/Container";
 import { heroes } from "../../../data/heroes";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export function generateStaticParams() {
-  // 讓 `next export` 知道要產哪些 /guides/<id> 頁面
   return heroes.map((h) => ({ id: h.id }));
 }
 
-export default function HeroDetailPage({ params }: Props) {
-  const hero = heroes.find((h) => h.id === params.id);
+export default async function HeroDetailPage({ params }: Props) {
+  const { id } = await params;
+
+  const hero = heroes.find((h) => h.id === id);
   if (!hero) return notFound();
 
   return (
