@@ -11,7 +11,7 @@ export default function Home() {
             DaiYum 公會
           </h1>
           <p className="mt-4 max-w-2xl text-neutral-200">
-            乾淨的攻略、英雄重點整理、以及 Montage 集錦。先把架構做好，內容我們再慢慢補齊。
+            DaiYum 公會專注於 Wild Rift 的內容創作與社群經營。未來會有攻略、影片、活動等，歡迎加入我們一起玩！
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -19,13 +19,13 @@ export default function Home() {
               href="/guides"
               className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200"
             >
-              看攻略
+              點選查看攻略！
             </Link>
             <Link
               href="/montage"
               className="rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
             >
-              看 Montage
+              看 Montage 精彩集錦！
             </Link>
           </div>
         </section>

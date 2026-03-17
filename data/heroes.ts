@@ -10,6 +10,7 @@ export type Hero = {
   lanes: Lane[];
   roles: Role[];
   functions: FunctionTag[];
+  image?: string; // e.g. "/heroes/ahri.png"
 };
 
 export const heroes: Hero[] = [
@@ -19,6 +20,7 @@ export const heroes: Hero[] = [
     lanes: ["上路"],
     roles: ["鬥士", "坦克"],
     functions: ["單帶", "開團"],
+    image: "/heroes/ezreal.webp",
   },
   {
     id: "ahri",
@@ -26,12 +28,22 @@ export const heroes: Hero[] = [
     lanes: ["中路"],
     roles: ["法師", "刺客"],
     functions: ["收割", "Poke"],
+    image: "/heroes/ezreal.webp",
   },
   {
     id: "ashe",
     name: "艾希",
     lanes: ["下路"],
     roles: ["射手"],
-    functions: ["控場", "Poke"],
+    functions: ["Poke", "全球流"],
+    image: "/heroes/ezreal.webp",
+  },
+  {
+    id: "ezreal",
+    name: "伊澤瑞爾",
+    lanes: ["下路"],
+    roles: ["射手"],
+    functions: ["Poke", "全球流"],
+    image: "/heroes/ezreal.webp",
   },
 ];
