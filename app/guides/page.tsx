@@ -4,14 +4,14 @@ import { useMemo, useState } from "react";
 import { Container } from "../../components/Container";
 import { HeroCard } from "../../components/HeroCard";
 import { Tag } from "../../components/Tag";
-import { heroes } from "../../data/heroes";
+import { Hero, heroes, type HeroTag} from "../../data/heroes";
 
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
 
 export default function GuidesPage() {
-  const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
+  const [activeTags, setActiveTags] = useState<Set<HeroTag>>(new Set());
 
   const allLaneTags = useMemo(() => uniq(heroes.flatMap((h) => h.lanes)), []);
   const allRoleTags = useMemo(() => uniq(heroes.flatMap((h) => h.roles)), []);
@@ -20,7 +20,7 @@ export default function GuidesPage() {
     []
   );
 
-  const toggleTag = (tag: string) => {
+  const toggleTag = (tag: HeroTag) => {
     setActiveTags((prev) => {
       const next = new Set(prev);
       if (next.has(tag)) next.delete(tag);
@@ -36,7 +36,7 @@ export default function GuidesPage() {
 
     // AND filter: hero must include every selected tag across any category
     return heroes.filter((h) => {
-      const heroTags = new Set([...h.lanes, ...h.roles, ...h.functions]);
+      const heroTags = new Set<string>([...h.lanes, ...h.roles, ...h.functions]);
       for (const t of activeTags) {
         if (!heroTags.has(t)) return false;
       }

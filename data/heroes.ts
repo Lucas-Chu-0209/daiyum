@@ -2,6 +2,8 @@ export type Lane = "上路" | "打野" | "中路" | "下路" | "輔助";
 export type Role = "鬥士" | "坦克" | "法師" | "射手" | "刺客" | "輔助";
 export type FunctionTag = "控場" | "單帶" | "開團" | "收割" | "Poke" | "全球流";
 
+export type HeroTag = Lane | Role | FunctionTag;
+
 export type Hero = {
   id: string; // url-safe, e.g. "ahri"
   name: string; // display name, e.g. "阿璃"

@@ -1,10 +1,10 @@
-import type { Hero } from "../data/heroes";
+import type { Hero, HeroTag } from "../data/heroes";
 import { Tag } from "./Tag";
 
 type Props = {
   hero: Hero;
-  activeTags: Set<string>;
-  toggleTag: (tag: string) => void;
+  activeTags: Set<HeroTag>;
+  toggleTag: (tag: HeroTag) => void;
 };
 
 export function HeroCard({ hero, activeTags, toggleTag }: Props) {
