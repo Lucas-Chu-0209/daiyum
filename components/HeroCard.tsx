@@ -16,7 +16,8 @@ function withBasePath(path: string) {
 
 export function HeroCard({ hero, activeTags, toggleTag }: Props) {
   const href = `/guides/${hero.id}`;
-  const imgSrc = hero.image ? withBasePath(hero.image) : undefined;
+  const ext = hero.imageExt ?? "avif";
+  const imgSrc = withBasePath(`/heroes/${hero.id}.${ext}`);
 
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">

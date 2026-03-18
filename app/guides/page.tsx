@@ -4,20 +4,39 @@ import { useMemo, useState } from "react";
 import { Container } from "../../components/Container";
 import { HeroCard } from "../../components/HeroCard";
 import { Tag } from "../../components/Tag";
-import { Hero, heroes, type HeroTag} from "../../data/heroes";
+import {
+  heroes,
+  type HeroTag,
+  type Lane,
+  type Role,
+  type FunctionTag,
+} from "../../data/heroes";
 
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
 
+// Type guards: let TS narrow HeroTag -> Lane/Role/FunctionTag safely
+function isLaneTag(tag: HeroTag, laneSet: Set<Lane>): tag is Lane {
+  // laneSet is authoritative list of lane tags in this page
+  return laneSet.has(tag as Lane);
+}
+function isRoleTag(tag: HeroTag, roleSet: Set<Role>): tag is Role {
+  return roleSet.has(tag as Role);
+}
+function isFuncTag(tag: HeroTag, funcSet: Set<FunctionTag>): tag is FunctionTag {
+  return funcSet.has(tag as FunctionTag);
+}
+
 export default function GuidesPage() {
   const [activeTags, setActiveTags] = useState<Set<HeroTag>>(new Set());
 
-  const allLaneTags = useMemo(() => uniq(heroes.flatMap((h) => h.lanes)), []);
-  const allRoleTags = useMemo(() => uniq(heroes.flatMap((h) => h.roles)), []);
+  // IMPORTANT: derived from heroes, so depend on heroes (even if it's currently module-level)
+  const allLaneTags = useMemo(() => uniq(heroes.flatMap((h) => h.lanes)), [heroes]);
+  const allRoleTags = useMemo(() => uniq(heroes.flatMap((h) => h.roles)), [heroes]);
   const allFuncTags = useMemo(
     () => uniq(heroes.flatMap((h) => h.functions)),
-    []
+    [heroes]
   );
 
   const toggleTag = (tag: HeroTag) => {
@@ -31,18 +50,39 @@ export default function GuidesPage() {
 
   const clear = () => setActiveTags(new Set());
 
+  // Filter: within same category = OR, across categories = AND
   const filtered = useMemo(() => {
     if (activeTags.size === 0) return heroes;
 
-    // AND filter: hero must include every selected tag across any category
+    const laneSet = new Set<Lane>(allLaneTags);
+    const roleSet = new Set<Role>(allRoleTags);
+    const funcSet = new Set<FunctionTag>(allFuncTags);
+
+    const activeLanes = new Set<Lane>(
+      [...activeTags].filter((t) => isLaneTag(t, laneSet))
+    );
+    const activeRoles = new Set<Role>(
+      [...activeTags].filter((t) => isRoleTag(t, roleSet))
+    );
+    const activeFuncs = new Set<FunctionTag>(
+      [...activeTags].filter((t) => isFuncTag(t, funcSet))
+    );
+
     return heroes.filter((h) => {
-      const heroTags = new Set<string>([...h.lanes, ...h.roles, ...h.functions]);
-      for (const t of activeTags) {
-        if (!heroTags.has(t)) return false;
-      }
-      return true;
+      const laneOk =
+        activeLanes.size === 0 ? true : h.lanes.some((t) => activeLanes.has(t));
+
+      const roleOk =
+        activeRoles.size === 0 ? true : h.roles.some((t) => activeRoles.has(t));
+
+      const funcOk =
+        activeFuncs.size === 0
+          ? true
+          : h.functions.some((t) => activeFuncs.has(t));
+
+      return laneOk && roleOk && funcOk;
     });
-  }, [activeTags]);
+  }, [activeTags, allLaneTags, allRoleTags, allFuncTags]);
 
   return (
     <main className="py-10">
@@ -50,9 +90,7 @@ export default function GuidesPage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h1 className="text-2xl font-semibold text-white">攻略</h1>
-            <p className="mt-2 text-neutral-300">
-              點標籤可篩選英雄（可多選）。
-            </p>
+            <p className="mt-2 text-neutral-300">點標籤可篩選英雄（可多選）。</p>
           </div>
 
           <button
