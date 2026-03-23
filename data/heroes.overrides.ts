@@ -4,7 +4,7 @@ export type HeroOverride = Partial<Pick<Hero, "name" | "lanes" | "roles" | "func
   id: Hero["id"];
 };
 
-// 你只要在這裡慢慢加，想補幾隻就補幾隻
+// 
 export const heroOverrides: HeroOverride[] = [
   {
     id: "garen",
