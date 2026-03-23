@@ -2,6 +2,10 @@ import Link from "next/link";
 import { Container } from "../components/Container";
 
 export default function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const guidesBg = `${basePath}/home/guides-bg.jpg`;
+  const montageBg = `${basePath}/home/montages-bg.jpg`;
+
   return (
     <main className="py-12">
       <Container>
@@ -21,7 +25,7 @@ export default function Home() {
           className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5"
           // 之後你選好圖片，把註解打開即可：
           style={{
-            backgroundImage: "url(/home/guides-bg.jpg)",
+            backgroundImage: `url(${guidesBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -30,7 +34,7 @@ export default function Home() {
           <div className="p-8">
             <p className="text-sm text-neutral-300">Guides</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-              查看攻略
+              英雄攻略大全
             </h2>
             <p className="mt-4 max-w-2xl text-neutral-200">
               使用路線 / 定位 / 功能標籤快速篩選英雄，找到你要的玩法與定位攻略！持續更新中。
@@ -41,7 +45,7 @@ export default function Home() {
                 href="/guides"
                 className="inline-flex rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200"
               >
-                點選查看攻略！
+                查看英雄攻略！
               </Link>
             </div>
           </div>
@@ -52,7 +56,7 @@ export default function Home() {
           className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5"
           // 之後你選好圖片，把註解打開即可：
           style={{
-            backgroundImage: "url(/home/montages-bg.jpg)",
+            backgroundImage: `url(${montageBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -60,7 +64,7 @@ export default function Home() {
           <div className="p-8">
             <p className="text-sm text-neutral-300">Montage</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-              Montage 精彩集錦
+              高光精華片段
             </h2>            <p className="mt-4 max-w-2xl text-neutral-200">
               公會成員的操作精華、精彩片段整理，持續更新。
             </p>
@@ -70,7 +74,7 @@ export default function Home() {
                 href="/montage"
                 className="inline-flex rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
               >
-                看 Montage 精彩集錦！
+                點擊觀賞精彩集錦！
               </Link>
             </div>
           </div>
