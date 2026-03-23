@@ -89,8 +89,8 @@ export default function GuidesPage() {
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-white">攻略</h1>
-            <p className="mt-2 text-neutral-300">點標籤可篩選英雄（可多選）。</p>
+            <h1 className="text-2xl font-semibold text-white">英雄攻略</h1>
+            <p className="mt-2 text-neutral-300">點擊標籤可篩選英雄（可多選）</p>
           </div>
 
           <button

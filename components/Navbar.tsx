@@ -5,7 +5,7 @@ const navItems = [
   { href: "/", label: "首頁" },
   { href: "/guides", label: "攻略" },
   { href: "/montage", label: "Montage" },
-  { href: "/guild", label: "公會" },
+  { href: "/guild", label: "關於我們" },
 ];
 
 export function Navbar() {
