@@ -1,71 +1,61 @@
-export * from "./heroes.generated";
+import { heroAssets } from "./heroes.generated_1";
+import { heroData } from "./heroes.data";
+import type { ImageExt } from "./heroes.generated";
 
-import { heroes as generatedHeroes } from "./heroes.generated";
-import { heroOverrides } from "./heroes.overrides";
+export type Lane = "上路" | "打野" | "中路" | "下路" | "輔助";
+export type Role = "鬥士" | "坦克" | "法師" | "射手" | "刺客";
 
-const overrideMap = new Map(heroOverrides.map((o) => [o.id, o]));
+// 你目前已經定義很多 FunctionTag，我先保留你現有的全集（你可自行加/刪）
+export type FunctionTag =
+  | "控場"
+  | "單帶"
+  | "開團"
+  | "收割"
+  | "Poke"
+  | "全球流"
+  | "風箏"
+  | "線霸"
+  | "打團"
+  | "反打"
+  | "遊走"
+  | "爆發"
+  | "持續輸出"
+  | "保護"
+  | "意識流"
+  | "切後"
+  | "農夫"
+  | "清線"
+  | "控線"
+  | "視野"
+  | "勾你"
+  | "會動的肉"
+  | "治療";
 
-// 導出的 heroes 會是「generated」+「你覆蓋的欄位」
-export const heroes = generatedHeroes.map((h) => {
-  const o = overrideMap.get(h.id);
-  if (!o) return h;
+export type HeroTag = Lane | Role | FunctionTag;
+
+export type Hero = {
+  id: string;
+  name: string;
+  lanes: Lane[];
+  roles: Role[];
+  functions: FunctionTag[];
+  imageExt: ImageExt;
+};
+
+/**
+ * 最終給網站用的 heroes：
+ * - 有填 heroData 的英雄：用你手動資料（中文名 + tags）
+ * - 沒填的英雄：name 預設用 id，tags 為空陣列
+ */
+export const heroes: Hero[] = heroAssets.map((a) => {
+  const d = heroData[a.id];
 
   return {
-    ...h,
-    ...o,
+    id: a.id,
+    imageExt: a.imageExt,
+    name: d?.name ?? a.id,
+    lanes: d?.lanes ?? [],
+    roles: d?.roles ?? [],
+    functions: d?.functions ?? [],
   };
 });
-
-// export type Lane = "上路" | "打野" | "中路" | "下路" | "輔助";
-// export type Role = "鬥士" | "坦克" | "法師" | "射手" | "刺客" | "輔助";
-// export type FunctionTag = "控場" | "單帶" | "開團" | "收割" | "Poke" | "全球流";
-
-// export type HeroTag = Lane | Role | FunctionTag;
-// export type ImageExt = "avif" | "webp" | "jpg" | "png";
-
-// export type Hero = {
-//   id: string; // url-safe, e.g. "ahri"
-//   name: string; // display name, e.g. "阿璃"
-//   lanes: Lane[];
-//   roles: Role[];
-//   functions: FunctionTag[];
-//   imageExt?: ImageExt; // optional, default .avif
-//   // image?: string; // e.g. "/heroes/ahri.png"
-// };
-
-// export const heroes: Hero[] = [
-//   {
-//     id: "garen",
-//     name: "蓋倫",
-//     lanes: ["上路"],
-//     roles: ["鬥士", "坦克"],
-//     functions: ["單帶", "開團"],
-//     imageExt: "webp",
-//   },
-//   {
-//     id: "ahri",
-//     name: "阿璃",
-//     lanes: ["中路"],
-//     roles: ["法師", "刺客"],
-//     functions: ["收割", "Poke"],
-//     imageExt: "webp",
-//     // image: "/heroes/ezreal.webp",
-//   },
-//   {
-//     id: "ashe",
-//     name: "艾希",
-//     lanes: ["下路"],
-//     roles: ["射手"],
-//     functions: ["Poke", "全球流"],
-//     imageExt: "webp",
-//   },
-//   {
-//     id: "ezreal",
-//     name: "伊澤瑞爾",
-//     lanes: ["下路"],
-//     roles: ["射手"],
-//     functions: ["Poke", "全球流"],
-//     imageExt: "webp",
-//     // image: "/heroes/ezreal.webp",
-//   },
-// ];
