@@ -150,7 +150,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Ezreal",
     lanes: ["下路"],
     roles: ["射手"],
-    functions: ["風箏","全球流","Poke"],
+    functions: ["風箏","全球流","Poke","拆塔"],
   },
   "fiddlesticks": {
     name: "Fiddlesticks",
@@ -162,7 +162,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Fiora",
     lanes: ["上路"],
     roles: ["鬥士"],
-    functions: ["切後","單帶","切坦"],
+    functions: ["切後","單帶","切坦","拆塔"],
   },
   "galio": {
     name: "Galio",
@@ -234,7 +234,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Jax",
     lanes: ["上路"],
     roles: ["鬥士"],
-    functions: ["切後","收割","打團"],
+    functions: ["切後","收割","打團","拆塔"],
   },
   "jayce": {
     name: "Jayce",
@@ -312,7 +312,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Kindred",
     lanes: ["打野"],
     roles: ["射手"],
-    functions: ["收割","單帶"],
+    functions: ["收割", "視野"],
   },
   "kogmaw": {
     name: "Kogmaw",
@@ -468,7 +468,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Orianna",
     lanes: ["中路"],
     roles: ["法師"],
-    functions: ["控場","Poke","打團"],
+    functions: ["控場","Poke","打團","清線"],
   },
   "ornn": {
     name: "Ornn",
@@ -522,7 +522,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Rengar",
     lanes: ["打野"],
     roles: ["刺客"],
-    functions: ["爆發","收割"],
+    functions: ["爆發","收割","拆塔"],
   },
   "riven": {
     name: "Riven",
@@ -564,7 +564,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Sett",
     lanes: ["上路"],
     roles: ["鬥士"],
-    functions: ["開團","控場"],
+    functions: ["開團","控場","拆塔"],
   },
   "shen": {
     name: "Shen",
@@ -594,7 +594,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Sivir",
     lanes: ["下路"],
     roles: ["射手"],
-    functions: ["打團"],
+    functions: ["打團", "清線"],
   },
   "smolder": {
     name: "Smolder",
@@ -654,7 +654,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Tristana",
     lanes: ["下路"],
     roles: ["射手"],
-    functions: ["爆發","收割"],
+    functions: ["爆發","收割","拆塔"],
   },
   "tryndamere": {
     name: "Tryndamere",
@@ -792,7 +792,7 @@ export const heroData: Record<string, HeroData> = {
     name: "Ziggs",
     lanes: ["中路"],
     roles: ["法師"],
-    functions: ["爆發","打團"],
+    functions: ["爆發","打團","拆塔"],
   },
   "zilean": {
     name: "Zilean",
