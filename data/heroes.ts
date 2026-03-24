@@ -1,6 +1,5 @@
-import { heroAssets } from "./heroes.generated_1";
+import { heroAssets, type ImageExt } from "./heroes.generated";
 import { heroData } from "./heroes.data";
-import type { ImageExt } from "./heroes.generated";
 
 export type Lane = "上路" | "打野" | "中路" | "下路" | "輔助";
 export type Role = "鬥士" | "坦克" | "法師" | "射手" | "刺客";
@@ -42,6 +41,17 @@ export type Hero = {
   functions: FunctionTag[];
   imageExt: ImageExt;
 };
+
+// --- Debug helpers (safe to keep) ---
+const missingDataIds = heroAssets.map((a) => a.id).filter((id) => !heroData[id]);
+if (missingDataIds.length) {
+  // This will show up in build logs if something is wrong in CI/GitHub Pages too.
+  console.warn(
+    `[heroes] Missing heroData for ${missingDataIds.length} ids. Example:`,
+    missingDataIds.slice(0, 30)
+  );
+}
+// ------------------------------------
 
 /**
  * 最終給網站用的 heroes：
