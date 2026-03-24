@@ -29,7 +29,8 @@ export type FunctionTag =
   | "視野"
   | "勾你"
   | "會動的肉"
-  | "治療";
+  | "治療"
+  | "切坦";
 
 export type HeroTag = Lane | Role | FunctionTag;
 
