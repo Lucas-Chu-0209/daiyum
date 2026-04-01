@@ -1,0 +1,22 @@
+export type MontageCategory = "Highlights" | "Ranked" | "ARAM" | "Other";
+
+export type MontageVideo = {
+  id: string; // internal id (unique)
+  title: string;
+  category: MontageCategory;
+  youtubeId: string; // e.g. "dQw4w9WgXcQ"
+  publishedAt?: string; // "2026-04-01" (optional, for sorting/display)
+  tags?: string[]; // optional
+};
+
+export const montageVideos: MontageVideo[] = [
+  {
+    id: "katarina-outplay-montage-1",
+    title: "KATARINA OUTPLAY MONTAGE #1 WILD RIFT 激鬥峽谷",
+    category: "Highlights",
+    youtubeId: "Zy8ZhG5Ek7c",
+    publishedAt: "2026-04-01",
+    tags: ["Katarina", "Outplay", "Montage"],
+  },
+  // 之後新增影片就繼續往下加
+];
