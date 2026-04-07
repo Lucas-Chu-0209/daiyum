@@ -19,4 +19,12 @@ export const montageVideos: MontageVideo[] = [
     tags: ["Katarina", "Outplay", "Montage"],
   },
   // 之後新增影片就繼續往下加
+  {
+    id: "camille-outplay-montage-1",
+    title: "CAMILLE OUTPLAY MONTAGE #1 WILD RIFT 激鬥峽谷",
+    category: "Highlights",
+    youtubeId: "moAa8xZ6JfA",
+    publishedAt: "2026-05-01",
+    tags: ["Camille", "Outplay", "Montage"],
+  }
 ];
