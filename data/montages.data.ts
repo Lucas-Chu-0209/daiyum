@@ -27,13 +27,13 @@ export const montageVideos: MontageVideo[] = [
     publishedAt: "2026-04-07",
     tags: ["Camille", "Outplay", "Montage"],
   },
-  
+
   {
     id: "ambessa-legendary-moment-1",
     title: "AMBESSA LEGENDARY MOMENT #1 WILD RIFT 激鬥峽谷",
     category: "Highlights",
     youtubeId: "UqCMyayKEwU",
-    publishedAt: "2026-04-15",
+    publishedAt: "2026-04-09",
     tags: ["Ambessa", "Legendary", "Montage", "Outplay"],
   }
 ];
