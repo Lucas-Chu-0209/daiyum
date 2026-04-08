@@ -24,7 +24,7 @@ export const montageVideos: MontageVideo[] = [
     title: "CAMILLE OUTPLAY MONTAGE #1 WILD RIFT 激鬥峽谷",
     category: "Highlights",
     youtubeId: "moAa8xZ6JfA",
-    publishedAt: "2026-05-01",
+    publishedAt: "2026-04-07",
     tags: ["Camille", "Outplay", "Montage"],
   }
 ];
