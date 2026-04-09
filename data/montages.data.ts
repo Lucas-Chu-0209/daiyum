@@ -43,4 +43,12 @@ export const montageVideos: MontageVideo[] = [
     publishedAt: "2026-04-09",
     tags: ["Taron", "Outplay", "Montage"],
   },
+  {
+    id: "lucian-pentakill-montage-1",
+    title: "LUCIAN PENTAKILL MONTAGE #1 WILD RIFT 激鬥峽谷",
+    category: "Highlights",
+    youtubeId: "X4Bh-9d0izI",
+    publishedAt: "2026-04-10",
+    tags: ["Lucian", "Pentakill", "Montage"],
+  }
 ];
