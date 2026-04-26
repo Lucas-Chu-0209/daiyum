@@ -8,6 +8,12 @@ export type HeroData = {
 };
 
 export const heroData: Record<string, HeroData> = {
+  "ksante": {
+    name: "Ksante",
+    lanes: ["上路"],
+    roles: ["鬥士", "坦克"],
+    functions: ["切後","切坦","開團","單帶"],
+  },
   "aatrox": {
     name: "Aatrox",
     lanes: ["上路","打野"],

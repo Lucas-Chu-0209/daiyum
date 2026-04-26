@@ -61,6 +61,7 @@ export const heroAssets: HeroAsset[] = [
   { id: "kennen", imageExt: "avif" },
   { id: "khazix", imageExt: "avif" },
   { id: "kindred", imageExt: "avif" },
+  { id: "ksante", imageExt: "avif" },
   { id: "kogmaw", imageExt: "jpg" },
   { id: "leesin", imageExt: "avif" },
   { id: "leona", imageExt: "avif" },
