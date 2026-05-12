@@ -35,4 +35,4 @@ bun dev
 ```
 
 See what it's like?
-Go: lucas-chu-0209.github.io/daiyum
+Go: https://lucas-chu-0209.github.io/daiyum
