@@ -33,3 +33,6 @@ pnpm dev
 # or
 bun dev
 ```
+
+See what it's like?
+Go: lucas-chu-0209.github.io/daiyum
